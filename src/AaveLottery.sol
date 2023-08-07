@@ -1,11 +1,11 @@
 pragma solidity ^0.8.0;
 
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import {IPool} from "@aave-v3-core/contracts/interfaces/IPool.sol";
-import {IAToken} from "@aave-v3-core/contracts/interfaces/IAToken.sol";
-import {DataTypes} from "@aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol";
-import {WadRayMath} from "@aave-v3-core/contracts/protocol/libraries/math/WadRayMath.sol";
+import {IERC20} from "openzeppelin-contracts/token/ERC20/IERC20.sol";
+import {SafeERC20} from "openzeppelin-contracts/token/ERC20/utils/SafeERC20.sol";
+import {IPool} from "aave-v3-core/contracts/interfaces/IPool.sol";
+import {IAToken} from "aave-v3-core/contracts/interfaces/IAToken.sol";
+import {DataTypes} from "aave-v3-core/contracts/protocol/libraries/types/DataTypes.sol";
+import {WadRayMath} from "aave-v3-core/contracts/protocol/libraries/math/WadRayMath.sol";
 
 // deposit time: 1000 DAI -> 1000 aDAI (scaledBalance 990) ------ store 1000 DAI as principal
 // time flies
@@ -73,10 +73,11 @@ contract AaveLottery {
         return rounds[roundId];
     }
 
-    function getTicket(
-        uint256 roundId,
-        address user
-    ) external view returns (Ticket memory) {
+    function getTicket(uint256 roundId, address user)
+        external
+        view
+        returns (Ticket memory)
+    {
         return tickets[roundId][user];
     }
 
